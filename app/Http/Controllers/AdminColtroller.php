@@ -11,4 +11,11 @@ class AdminColtroller extends Controller
     {
         return view('layout.dashboard');
     }
+    public function gotoCharts()
+    {
+        return view('layout.chart');
+    }
+    public function gotoBarang(){
+        return view('layout.barang');
+    }
 }

@@ -11,7 +11,7 @@
             {{-- topbar --}}
 
             <!-- Container Fluid-->
-            @yield('dashboard')
+            @yield('content')
             <!---Container Fluid-->
         </div>
         <!-- Footer -->

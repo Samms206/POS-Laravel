@@ -7,4 +7,6 @@ use App\Http\Controllers\AdminColtroller;
 //     return view('index');
 // });
 
-Route::get('/', [AdminColtroller::class, 'index']);
+Route::get('/', [AdminColtroller::class, 'index'])->name('dashboard');
+Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
+Route::get('/barang', [AdminColtroller::class, 'gotoBarang'])->name('barang');
