@@ -10,3 +10,4 @@ use App\Http\Controllers\AdminColtroller;
 Route::get('/', [AdminColtroller::class, 'index'])->name('dashboard');
 Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
 Route::get('/barang', [AdminColtroller::class, 'gotoBarang'])->name('barang');
+Route::get('/transaksi', [AdminColtroller::class, 'gotoTransaksi'])->name('transaction');

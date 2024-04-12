@@ -18,4 +18,7 @@ class AdminColtroller extends Controller
     public function gotoBarang(){
         return view('layout.barang');
     }
+    public function gotoTransaksi(){
+        return view('layout.transaksi');
+    }
 }
