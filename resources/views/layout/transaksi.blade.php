@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item">Transaksi</li>
             </ol>
         </div>
-
+        <!--Row-->
         <div class="row">
             <div class="col-lg-4">
                 <!-- Form Basic -->
@@ -58,18 +58,94 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="select2SinglePlaceholder">Customer</label>
-                                        <select class="select2-single-placeholder form-control" name="customer" id="select2SinglePlaceholder">
-                                          <option value="">Select</option>
-                                          <option value="fulan">Fulan</option>
-                                          <option value="sofian">Sofian</option>
-                                          <option value="hadi">Hadi</option>
-                                          <option value="cecep">Cecep</option>
+                                        <select class="select2-single-placeholder form-control" name="customer"
+                                            id="select2SinglePlaceholder">
+                                            <option value="">Select</option>
+                                            <option value="fulan">Fulan</option>
+                                            <option value="sofian">Sofian</option>
+                                            <option value="hadi">Hadi</option>
+                                            <option value="cecep">Cecep</option>
                                         </select>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                    </div>
+                </div>
+                <!-- Row -->
+                <div class="row">
+                    <!-- DataTable with Hover -->
+                    <div class="col-lg-12">
+                        <div class="card mb-4">
+                            <div class="table-responsive p-3">
+                                <table class="table align-items-center table-flush table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Produk</th>
+                                            <th>Harga</th>
+                                            <th>Qty</th>
+                                            <th>Sub Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Total</th>
+                                            <th>Rp.28000</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-danger" href="#">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td>Coca-cola</td>
+                                            <td>5000</td>
+                                            <td>2</td>
+                                            <td>10000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-danger" href="#">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            <td>Potato</td>
+                                            <td>9000</td>
+                                            <td>2</td>
+                                            <td>18000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Row-->
+                <div class="row">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="diskon">Diskon(Rp.)</label>
+                            <input type="text" class="form-control" id="diskon" placeholder="Rp.-">
+                        </div>
+                        <div class="form-group">
+                            <label for="bayar">Bayar(Rp.)</label>
+                            <input type="text" class="form-control" id="bayar" placeholder="Rp.-">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <button style="width: 100%" type="submit" class="btn btn-danger">batal</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <button style="width: 100%" type="submit" class="btn btn-primary">Beli</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

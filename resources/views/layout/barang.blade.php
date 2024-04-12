@@ -18,8 +18,8 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Data Barang</h6>
                         <a class="btn btn-primary" href="">
-                            Add <i class="fas fa-plus-circle"></i> 
-                        </a>                            
+                            Add <i class="fas fa-plus-circle"></i>
+                        </a>
                     </div>
                     <div class="table-responsive p-3">
                         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -54,7 +54,7 @@
                                         <a class="btn btn-primary" href="#">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a  class="btn btn-danger" href="#">
+                                        <a class="btn btn-danger" href="#">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -69,7 +69,7 @@
                                         <a class="btn btn-primary" href="#">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a  class="btn btn-danger" href="#">
+                                        <a class="btn btn-danger" href="#">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
