@@ -34,4 +34,8 @@
         right: 1px;
         width: 20px;
     }
+
+    #dataTableHover_paginate {
+        float: right;
+    }
 </style>
