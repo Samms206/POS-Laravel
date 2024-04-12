@@ -17,8 +17,7 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="text" class="form-control" id="idBarang" name="idBarang" placeholder="ID Barang">
                             </div>
                             <div class="form-group">
                                 <label for="namaProduk">Nama Produk</label>

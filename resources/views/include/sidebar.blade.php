@@ -27,7 +27,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data Master</h6>
                 <a class="collapse-item" href="{{route('barang')}}">Barang</a>
-                <a class="collapse-item" href="#">User</a>
+                <a class="collapse-item" href="{{route('user')}}">User</a>
             </div>
         </div>
     </li>
