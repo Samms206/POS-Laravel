@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <!--Row-->
-                <div class="row">
+                <div class="row mb-4">
                     <div class="col-lg-8"></div>
                     <div class="col-lg-4">
                         <div class="form-group">
