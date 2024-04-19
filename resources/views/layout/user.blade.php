@@ -15,9 +15,41 @@
             <!-- DataTable with Hover -->
             <div class="col-lg-12">
                 <div class="card mb-4">
+                    <!-- Modal Add-->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" action="{{ route('add-barang') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="namaProduk">Nama Produk</label>
+                                            <input type="text" required class="form-control" id="namaProduk" name="nama_brg"
+                                                placeholder="Nama Produk">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary"
+                                        data-dismiss="modal">Tutup</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- end Modal --}}
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
-                        <a class="btn btn-primary" href="">
+                        <a class="btn btn-primary" href="" data-toggle="modal" data-target="#exampleModal"
+                        id="#myBtn">
                             Add <i class="fas fa-plus-circle"></i>
                         </a>
                     </div>
