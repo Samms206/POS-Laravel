@@ -31,7 +31,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <label for="namaProduk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="namaProduk" name="nama_brg"
+                                            <input type="text" required class="form-control" id="namaProduk" name="nama_brg"
                                                 placeholder="Nama Produk">
                                         </div>
                                         <div class="form-group">
@@ -39,7 +39,7 @@
                                             <div class="input-group touch-spin">
                                                 <span class="input-group-btn input-group-prepend">
                                                 </span>
-                                                <input style="text-align: center" id="touchSpin3" type="text"
+                                                <input style="text-align: center" id="touchSpin3" type="text" required
                                                     value="0" name="stok" class="form-control">
                                                 <span class="input-group-btn input-group-append">
                                                 </span>
@@ -47,12 +47,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="hrgjual">Harga Jual</label>
-                                            <input type="text" class="form-control" id="hrgjual" placeholder="Rp.-"
+                                            <input type="text" required class="form-control" id="hrgjual" placeholder="Rp.-"
                                                 name="hrg_jual">
                                         </div>
                                         <div class="form-group">
                                             <label for="hrgeli">Harga Beli</label>
-                                            <input type="text" class="form-control" id="hrgeli" placeholder="Rp.-"
+                                            <input type="text" required class="form-control" id="hrgeli" placeholder="Rp.-"
                                                 name="hrg_beli">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -112,22 +112,22 @@
                                         @method('PUT')
                                         <div class="form-group">
                                             <label for="editNamaProduk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="editNamaProduk"
+                                            <input type="text" required class="form-control" id="editNamaProduk"
                                                 name="edit_nama_brg" placeholder="Nama Produk">
                                         </div>
                                         <div class="form-group">
                                             <label for="editStok">Stok</label>
-                                            <input type="text" class="form-control" id="editStok" name="edit_stok"
+                                            <input type="text" required class="form-control" id="editStok" name="edit_stok"
                                                 placeholder="Stok">
                                         </div>
                                         <div class="form-group">
                                             <label for="editHargaJual">Harga Jual</label>
-                                            <input type="text" class="form-control" id="editHargaJual"
+                                            <input type="text" required class="form-control" id="editHargaJual"
                                                 name="edit_hrg_jual" placeholder="Harga Jual">
                                         </div>
                                         <div class="form-group">
                                             <label for="editHargaBeli">Harga Beli</label>
-                                            <input type="text" class="form-control" id="editHargaBeli"
+                                            <input type="text" required class="form-control" id="editHargaBeli"
                                                 name="edit_hrg_beli" placeholder="Harga Beli">
                                         </div>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
