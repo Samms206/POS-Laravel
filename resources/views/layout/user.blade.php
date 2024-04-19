@@ -186,8 +186,10 @@
                                         <td>
                                             @if ($user->role == '1')
                                                 Admin
-                                            @else
+                                            @elseif ($user->role == '2')
                                                 Staff
+                                            @else
+                                                Supplier
                                             @endif
                                         </td>
                                         <td>
