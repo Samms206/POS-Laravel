@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Models\User;
 
 class AdminColtroller extends Controller
 {
@@ -24,6 +25,7 @@ class AdminColtroller extends Controller
         return view('layout.transaksi');
     }
     public function gotoUser(){
-        return view('layout.user');
+        $users = User::all();
+        return view('layout.user')->with('users', $users);
     }
 }

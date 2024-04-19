@@ -43,6 +43,28 @@
         });
         //end crud barang
 
+        //crud user
+        $('.delete-btn-user').click(function() {
+            var userId = $(this).data('user-id');
+            var userName = $(this).data('user-name');
+            $('#deleteModalUser').find('.modal-body').html('Anda yakin ingin menghapus data "' + userName + '"?');
+            $('#deleteModalUser').find('form').attr('action', '/delete-user/' + userId);
+        });
+        $('.edit-btn-user').click(function() {
+            var userId = $(this).data('user-id');
+            var userName = $(this).data('user-name');
+            var userEmail = $(this).data('user-email');
+            var userAddress = $(this).data('user-address');
+            var userRole = $(this).data('user-role');
+            var userPassword = $(this).data('user-password');
+
+            $('#editModalUser').find('#editUserName').val(userName);
+            $('#editModalUser').find('#editUserEmail').val(userEmail);
+            $('#editModalUser').find('#editUserAddress').val(userAddress);
+            $('#editModalUser').find('form').attr('action', '/update-user/' + userId);
+        })
+        //end crud user
+
         $('#dataTableHover').DataTable(); // ID From dataTable with Hover
 
         $('#touchSpin3').TouchSpin({
