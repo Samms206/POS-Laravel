@@ -19,6 +19,30 @@
 <!-- Page level custom scripts -->
 <script>
     $(document).ready(function() {
+        //crud barang
+        $('.delete-btn').click(function() {
+            var barangId = $(this).data('barang-id');
+            var barangNama = $(this).data('barang-nama');
+            $('#deleteModal').find('.modal-body').html('Anda yakin ingin menghapus data "' + barangNama + '"?');
+            $('#deleteModal').find('form').attr('action', '/delete-barang/' + barangId);
+        });
+
+        $('.edit-btn').click(function() {
+            var barangId = $(this).data('barang-id');
+            var barangNama = $(this).data('barang-nama');
+            var barangStok = $(this).data('barang-stok');
+            var barangHargaJual = $(this).data('barang-harga-jual');
+            var barangHargaBeli = $(this).data('barang-harga-beli');
+
+            $('#editModal').find('#editNamaProduk').val(barangNama);
+            $('#editModal').find('#editStok').val(barangStok);
+            $('#editModal').find('#editHargaJual').val(barangHargaJual);
+            $('#editModal').find('#editHargaBeli').val(barangHargaBeli);
+
+            $('#editModal').find('form').attr('action', '/update-barang/' + barangId);
+        });
+        //end crud barang
+
         $('#dataTableHover').DataTable(); // ID From dataTable with Hover
 
         $('#touchSpin3').TouchSpin({

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class AdminColtroller extends Controller
 {
@@ -16,7 +17,8 @@ class AdminColtroller extends Controller
         return view('layout.chart');
     }
     public function gotoBarang(){
-        return view('layout.barang');
+        $barangs = Barang::all();
+        return view('layout.barang')->with('barangs', $barangs);
     }
     public function gotoTransaksi(){
         return view('layout.transaksi');
