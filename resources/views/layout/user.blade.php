@@ -188,8 +188,10 @@
                                                 Admin
                                             @elseif ($user->role == '2')
                                                 Staff
-                                            @else
+                                            @elseif ($user->role == '3')
                                                 Supplier
+                                            @else
+                                                Customer
                                             @endif
                                         </td>
                                         <td>

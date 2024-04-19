@@ -60,10 +60,9 @@
                                         <select class="select2-single-placeholder form-control" name="customer"
                                             id="select2SinglePlaceholder">
                                             <option value="">Select</option>
-                                            <option value="fulan">Fulan</option>
-                                            <option value="sofian">Sofian</option>
-                                            <option value="hadi">Hadi</option>
-                                            <option value="cecep">Cecep</option>
+                                            @foreach ($names as $name)
+                                                <option value="{{ $name }}">{{ $name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

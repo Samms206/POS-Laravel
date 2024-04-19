@@ -22,7 +22,8 @@ class AdminColtroller extends Controller
         return view('layout.barang')->with('barangs', $barangs);
     }
     public function gotoTransaksi(){
-        return view('layout.transaksi');
+        $names = User::where('role', 4)->pluck('name');
+        return view('layout.transaksi',['names' => $names]);
     }
     public function gotoUser(){
         $users = User::all();
