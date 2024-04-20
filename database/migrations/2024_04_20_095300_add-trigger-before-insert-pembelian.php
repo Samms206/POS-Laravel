@@ -17,7 +17,7 @@ return new class extends Migration
             FOR EACH ROW
             BEGIN
                 DECLARE stok_awal INT;
-                SELECT stok INTO stok_awal FROM barangs WHERE id_brg = NEW.id_barang;
+                SELECT stok INTO stok_awal FROM barangs WHERE id = NEW.id_barang;
                 SET NEW.stok_sebelum = stok_awal;
                 SET NEW.stok_sesudah = stok_awal + NEW.tambah_stok;
             END
