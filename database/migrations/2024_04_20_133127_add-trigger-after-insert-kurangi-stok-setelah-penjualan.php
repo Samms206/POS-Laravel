@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         DB::unprepared('
-            CREATE TRIGGER before_insert_penjualan
-            BEFORE INSERT ON detail_transactions
+            CREATE TRIGGER after_insert_kurangi_stok_setelah_penjualan
+            AFTER INSERT ON detail_transactions
             FOR EACH ROW
             BEGIN
-                DECLARE stok_awal INT;
-                SELECT stok INTO stok_awal FROM barangs WHERE id = NEW.id_barang;
-                SET NEW.stok_sebelum = stok_awal;
-                SET NEW.stok_sesudah = stok_awal - NEW.qty;
+                UPDATE barangs
+                SET stok = stok - NEW.qty
+                WHERE id = NEW.id_barang;
             END
         ');
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::unprepared('DROP TRIGGER IF EXISTS before_insert_penjualan');
+        DB::unprepared('DROP TRIGGER IF EXISTS after_insert_kurangi_stok_setelah_penjualan');
     }
 };
