@@ -18,12 +18,109 @@
 
 <!-- Page level custom scripts -->
 <script>
+    //Update Total
+    function updateTotal() {
+        var total = 0;
+        $('tbody tr').each(function() {
+            var subtotal = parseFloat($(this).find('td:eq(4)').text());
+            total += subtotal;
+        });
+        $('#total').text('Rp.' + total.toFixed(2));
+    }
+    //end Update Total
+
+    //remove product dari keranjang
+    function removeProduct(event){
+        $(event).closest('tr').remove();
+        updateTotal();
+    }
+    //end remove product
+
+    //clear
+    function clearAddProduct(){
+        $('#idBarang').val('');
+        $('#namaProduk').val('');
+        $('#touchSpin3').val('0');
+    }
+    //
+
     $(document).ready(function() {
+        updateTotal();
+        //clear
+        $('#btnClear').on('click', function() {
+            clearAddProduct();
+        })
+        //end clear
+
+        //add product to chart
+        $('#btnAddproduct').on('click', function() {
+        var idBarang = $('#idBarang').val();
+        var qty = parseInt($('#touchSpin3').val());
+
+        if (idBarang.trim() === '') {
+            alert('ID Barang harus diisi!');
+            return;
+        }
+
+        if(qty <= 0) {
+            alert('Qty harus diisi!');
+            return;
+        }
+
+        $.ajax({
+            url: '/add-to-cart/' + idBarang,
+            type: 'GET',
+            success: function(data) {
+                var namaProduk = data.namaProduk;
+                var harga = data.harga;
+                var subtotal = harga * qty;
+
+                $('#keranjang tbody').append(`
+                    <tr>
+                        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeProduct(this)"><i class="fas fa-trash"></i></button></td>
+                        <td>${namaProduk}</td>
+                        <td>${harga}</td>
+                        <td>${qty}</td>
+                        <td>${subtotal}</td>
+                    </tr>
+                `);
+                updateTotal();
+                clearAddProduct();
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mendapatkan detail produk!');
+            }
+            });
+        });
+        //end addproduct to chart
+
+        //find product realtime
+        $('#idBarang').on('input', function() {
+            var idBarang = $(this).val();
+            if (!idBarang) {
+                $('#namaProduk').val('');
+                return;
+            }
+            $.ajax({
+                url: '/get-product-name/' + idBarang,
+                type: 'GET',
+                success: function(data) {
+                    $('#namaProduk').val(data.productName);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Product Not Found!');
+                }
+            })
+        });
+        //end find product realtime
+
         //crud barang
         $('.delete-btn').click(function() {
             var barangId = $(this).data('barang-id');
             var barangNama = $(this).data('barang-nama');
-            $('#deleteModal').find('.modal-body').html('Anda yakin ingin menghapus data "' + barangNama + '"?');
+            $('#deleteModal').find('.modal-body').html('Anda yakin ingin menghapus data "' +
+                barangNama + '"?');
             $('#deleteModal').find('form').attr('action', '/delete-barang/' + barangId);
         });
 
@@ -47,7 +144,8 @@
         $('.delete-btn-user').click(function() {
             var userId = $(this).data('user-id');
             var userName = $(this).data('user-name');
-            $('#deleteModalUser').find('.modal-body').html('Anda yakin ingin menghapus data "' + userName + '"?');
+            $('#deleteModalUser').find('.modal-body').html('Anda yakin ingin menghapus data "' +
+                userName + '"?');
             $('#deleteModalUser').find('form').attr('action', '/delete-user/' + userId);
         });
         $('.edit-btn-user').click(function() {

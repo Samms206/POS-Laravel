@@ -35,8 +35,8 @@
                                     </span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-warning">Clear</button>
-                            <button type="submit" class="btn btn-success">Add</button>
+                            <button type="button" class="btn btn-warning" id="btnClear">Clear</button>
+                            <button type="button" class="btn btn-success" id="btnAddproduct">Add</button>
                         </form>
                     </div>
                 </div>
@@ -76,7 +76,8 @@
                     <div class="col-lg-12">
                         <div class="card mb-4">
                             <div class="table-responsive p-3">
-                                <table class="table align-items-center table-flush table-hover">
+                                {{-- Table Keranjang --}}
+                                <table class="table align-items-center table-flush table-hover" id="keranjang">
                                     <thead class="thead-light">
                                         <tr>
                                             <th>#</th>
@@ -92,32 +93,10 @@
                                             <th></th>
                                             <th></th>
                                             <th>Total</th>
-                                            <th>Rp.28000</th>
+                                            <th id="total">Rp.-</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                            <td>Coca-cola</td>
-                                            <td>5000</td>
-                                            <td>2</td>
-                                            <td>10000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a class="btn btn-danger" href="#">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                            <td>Potato</td>
-                                            <td>9000</td>
-                                            <td>2</td>
-                                            <td>18000</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

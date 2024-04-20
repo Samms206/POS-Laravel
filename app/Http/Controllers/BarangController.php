@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
+    public function show($id){
+        $productName = Barang::where('id', $id)->value('nama_brg');
+
+        return response()->json(['productName' => $productName]);
+    }
+
     public function store(Request $request)
     {
         Barang::create($request->all());
