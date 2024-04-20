@@ -20,7 +20,7 @@ return new class extends Migration
                 DECLARE stok_baru INT;
                 SELECT stok INTO stok_sekarang FROM barangs WHERE id = NEW.id_barang;
                 SET stok_baru = stok_sekarang + NEW.tambah_stok;
-                UPDATE barang SET stok = stok_baru WHERE id = NEW.id_barang;
+                UPDATE barangs SET stok = stok_baru WHERE id = NEW.id_barang;
             END
         ');
     }
