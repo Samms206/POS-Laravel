@@ -49,6 +49,8 @@
                                             <select class="form-control" id="role" name="role" required>
                                                 <option value="1">Admin</option>
                                                 <option value="2">Staff</option>
+                                                <option value="3">Suplier</option>
+                                                <option value="4">Customer</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
