@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_transaction');
             $table->unsignedBigInteger('id_barang');
             $table->integer('qty');
-            $table->integer('stok_sebelum');
-            $table->integer('stok_sesudah');
+            $table->integer('stok_sebelum')->nullable();
+            $table->integer('stok_sesudah')->nullable();
             $table->timestamps();
 
             $table->foreign('id_transaction')->references('id')->on('transactions')->onDelete('cascade');
