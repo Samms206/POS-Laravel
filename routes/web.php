@@ -30,3 +30,5 @@ Route::delete('/delete-user/{id}', [UserController::class, 'destroy'])->name('de
 
 //Transaction
 Route::get('/add-to-cart/{id}', [TransactionController::class, 'addToCart'])->name('add-to-chart');
+Route::post('/save-transaction', [TransactionController::class, 'store'])->name('save-transaction');
+

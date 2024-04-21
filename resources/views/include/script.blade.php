@@ -18,16 +18,37 @@
 
 <!-- Page level custom scripts -->
 <script>
+
     //Update Total
     function updateTotal() {
         var total = 0;
         $('tbody tr').each(function() {
-            var subtotal = parseFloat($(this).find('td:eq(4)').text());
+            var subtotal = parseFloat($(this).find('td:eq(5)').text());
             total += subtotal;
         });
         $('#total').text('Rp.' + total.toFixed(2));
     }
     //end Update Total
+
+    //Update Grand Total
+    function updateGrandTotal() {
+        var total = parseFloat($('#total').text().replace('Rp.', '').replace(',', ''));
+        var diskon = parseFloat($('#diskon').val().replace('Rp.', '').replace(',', ''));
+        var bayar = parseFloat($('#bayar').val().replace('Rp.', '').replace(',', ''));
+
+        var grandTotal = total - diskon;
+        var change = bayar - grandTotal;
+
+        $('#grandTotal').text('Rp.' + grandTotal.toFixed(2));
+        $('#tf_total').val(grandTotal.toFixed(2));
+        if (isNaN(change)) {
+            $('#change').text('Isi Pembayaran Terlebih Dahulu');
+        } else {
+            $('#change').text('Rp.' + change.toFixed(2));
+            $('#tf_change').val(change.toFixed(2));
+        }
+    }
+    //end Update Grand Total
 
     //remove product dari keranjang
     function removeProduct(event){
@@ -45,12 +66,30 @@
     //
 
     $(document).ready(function() {
+
         updateTotal();
         //clear
         $('#btnClear').on('click', function() {
             clearAddProduct();
         })
         //end clear
+
+        //Bayar Realtime
+        $('#bayar').on('input', function() {
+            updateGrandTotal();
+        });
+        //end bayar
+
+        //Diskon Realtime
+        $('#diskon').on('change', function() {
+            var diskon = $('#diskon').val();
+            if (diskon.trim() === '') {
+                $('#diskon').val(0);
+            }
+            updateGrandTotal();
+        });
+        //end diskon
+
 
         //add product to chart
         $('#btnAddproduct').on('click', function() {
@@ -74,14 +113,28 @@
                 var namaProduk = data.namaProduk;
                 var harga = data.harga;
                 var subtotal = harga * qty;
-
                 $('#keranjang tbody').append(`
                     <tr>
                         <td><button type="button" class="btn btn-danger btn-sm" onclick="removeProduct(this)"><i class="fas fa-trash"></i></button></td>
-                        <td>${namaProduk}</td>
-                        <td>${harga}</td>
-                        <td>${qty}</td>
-                        <td>${subtotal}</td>
+                        <td>
+                            ${idBarang}
+                            <input type="hidden" name="id_barang[]" value="${idBarang}">
+                        </td>
+                        <td>
+                            ${namaProduk}
+                        </td>
+                        <td>
+                            ${harga}
+                            <input type="hidden" name="harga[]" value="${harga}">
+                        </td>
+                        <td>
+                            ${qty}
+                            <input type="hidden" name="qty[]" value="${qty}">
+                        </td>
+                        <td>
+                            ${subtotal}
+                            <input type="hidden" name="sub_total[]" value="${subtotal}">
+                        </td>
                     </tr>
                 `);
                 updateTotal();
@@ -148,6 +201,7 @@
                 userName + '"?');
             $('#deleteModalUser').find('form').attr('action', '/delete-user/' + userId);
         });
+
         $('.edit-btn-user').click(function() {
             var userId = $(this).data('user-id');
             var userName = $(this).data('user-name');
