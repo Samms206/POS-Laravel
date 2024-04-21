@@ -13,4 +13,15 @@ class Barang extends Model
     protected $fillable = [
         'nama_brg','stok','hrg_jual','hrg_beli'
     ];
+
+    //relationship
+    public function detailTransactions()
+    {
+        return $this->hasMany(DetailTransaction::class, 'id_barang', 'id');
+    }
+
+    public function detailSupliers()
+    {
+        return $this->hasMany(DetailSuplier::class, 'id_barang', 'id');
+    }
 }
