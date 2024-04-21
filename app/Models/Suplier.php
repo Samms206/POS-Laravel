@@ -9,6 +9,12 @@ class Suplier extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id_suplier',
+        'tgl_beli',
+        'keterangan'
+    ];
+
     public function detailSupliers()
     {
         return $this->hasMany(DetailSuplier::class, 'id_suplier', 'id');
