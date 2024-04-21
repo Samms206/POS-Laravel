@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class suplier extends Model
+class Suplier extends Model
 {
     use HasFactory;
+
+    public function detailSupliers()
+    {
+        return $this->hasMany(DetailSuplier::class, 'id_suplier', 'id');
+    }
 }

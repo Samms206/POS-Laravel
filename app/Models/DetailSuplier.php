@@ -9,8 +9,13 @@ class DetailSuplier extends Model
 {
     use HasFactory;
 
-    public function detailSupliers()
+    public function suplier()
     {
-        return $this->hasMany(DetailSuplier::class, 'id_suplier', 'id');
+        return $this->belongsTo(Suplier::class, 'id_suplier', 'id');
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class, 'id_barang', 'id');
     }
 }
