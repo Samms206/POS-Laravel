@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_barang');
             $table->integer('tambah_stok');
             $table->decimal('hrg_beli', 10, 2);
-            $table->integer('stok_sebelum');
-            $table->integer('stok_sesudah');
+            $table->integer('stok_sebelum')->nullable();
+            $table->integer('stok_sesudah')->nullable();
             $table->timestamps();
 
             $table->foreign('id_suplier')->references('id')->on('supliers')->onDelete('cascade');
