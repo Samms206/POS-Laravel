@@ -9,6 +9,11 @@ class return_product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id_detail_transaction',
+        'tgl_ret',
+        'keterangan_ret',
+    ];
 
     public function detailTransaction()
     {
