@@ -46,7 +46,7 @@
         <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Laporan</h6>
-                <a class="collapse-item" href="#">Laporan Transaksi</a>
+                <a class="collapse-item" href="{{ route('report-transaction') }}">Laporan Transaksi</a>
                 <a class="collapse-item" href="#">Laporan Barang</a>
             </div>
         </div>

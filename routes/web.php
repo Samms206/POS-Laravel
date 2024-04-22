@@ -16,6 +16,7 @@ Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
 Route::get('/barang', [AdminColtroller::class, 'gotoBarang'])->name('barang');
 Route::get('/transaksi', [AdminColtroller::class, 'gotoTransaksi'])->name('transaction');
 Route::get('/user', [AdminColtroller::class, 'gotoUser'])->name('user');
+Route::get('/report-transaction', [AdminColtroller::class, 'gotoReportTransaction'])->name('report-transaction');
 
 //CRUD Barang
 Route::get('/get-product-name/{id}', [BarangController::class, 'show'])->name('get-product-name');

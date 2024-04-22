@@ -29,4 +29,7 @@ class AdminColtroller extends Controller
         $users = User::all();
         return view('layout.user')->with('users', $users);
     }
+    public function gotoReportTransaction(){
+        return view('layout.report.transaksi-report');
+    }
 }
