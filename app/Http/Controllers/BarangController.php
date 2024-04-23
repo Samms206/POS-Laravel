@@ -16,7 +16,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         Barang::create($request->all());
-        return redirect('/barang');
+        return redirect('/barang')->with('success', 'Data barang berhasil ditambahkan.');
     }
     public function update(Request $request, $id)
     {
@@ -35,6 +35,6 @@ class BarangController extends Controller
     public function destroy($id){
         $barangs = Barang::find($id);
         $barangs->delete();
-        return redirect('/barang');
+        return redirect('/barang')->with('warning', 'Data barang telah dihapus.');
     }
 }
