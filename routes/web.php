@@ -2,14 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminColtroller;
+use App\Http\Controllers\Authentication;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
 
-
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/login', [Authentication::class, 'index'])->name('login');
 
 Route::get('/', [AdminColtroller::class, 'index'])->name('dashboard');
 Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
