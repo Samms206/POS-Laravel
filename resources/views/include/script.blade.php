@@ -15,6 +15,15 @@
 <script src="vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
 <!-- Select2 -->
 <script src="vendor/select2/dist/js/select2.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if ($message = Session::get('failed'))
+    <script>
+        Swal.fire(
+            '{{ $message }}'
+        );
+    </script>
+@endif
 
 <!-- Page level custom scripts -->
 <script>

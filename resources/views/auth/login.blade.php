@@ -33,10 +33,10 @@
                     @csrf
                     <div class="form-group">
                       <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                        name="email" placeholder="Enter Email Address">
+                        name="email" required placeholder="Enter Email Address">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" id="exampleInputPassword" name="password" placeholder="Password">
+                      <input type="password" class="form-control" id="exampleInputPassword" name="password" required placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
@@ -68,10 +68,8 @@
     </div>
   </div>
   <!-- Login Content -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="js/ruang-admin.min.js"></script>
+
+  @include('include.script')
 </body>
 
 </html>
