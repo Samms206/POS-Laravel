@@ -25,6 +25,7 @@ class Authentication extends Controller
     }
 
     public function logout(){
+        //logout
         Auth::logout();
         return redirect()->route('login')->with('warning', 'Your have been logout');
     }
