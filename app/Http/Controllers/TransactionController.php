@@ -54,7 +54,7 @@ class TransactionController extends Controller
             }
 
             DB::commit();
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Transaksi berhasil ditambahkan');
 
         } catch (\Throwable $th) {
             DB::rollBack();
