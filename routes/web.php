@@ -9,6 +9,7 @@ use App\Http\Controllers\TransactionController;
 
 Route::get('/login', [Authentication::class, 'index'])->name('login');
 Route::post('/login-process', [Authentication::class, 'auth'])->name('login-process');
+Route::get('/logout', [Authentication::class, 'logout'])->name('logout');
 
 Route::get('/', [AdminColtroller::class, 'index'])->name('dashboard');
 Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');

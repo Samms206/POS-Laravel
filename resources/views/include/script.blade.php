@@ -17,13 +17,38 @@
 <script src="vendor/select2/dist/js/select2.min.js"></script>
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if ($message = Session::get('failed'))
+
+{{-- Alert --}}
+@if ($message = Session::get('warning'))
     <script>
-        Swal.fire(
-            '{{ $message }}'
-        );
+        Swal.fire({
+            title: "Anouncement",
+            text: '{{ $message }}',
+            icon: "warning"
+        });
     </script>
 @endif
+
+@if ($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            title: "Good job!",
+            text: '{{ $message }}',
+            icon: "success"
+        });
+    </script>
+@endif
+
+@if ($message = Session::get('failed'))
+    <script>
+        Swal.fire({
+            title: "Error",
+            text: '{{ $message }}',
+            icon: "error"
+        });
+    </script>
+@endif
+{{-- End Alert --}}
 
 <!-- Page level custom scripts -->
 <script>

@@ -23,4 +23,9 @@ class Authentication extends Controller
             return redirect()->route('login')->with('failed', 'Wrong email or password');
         }
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login')->with('warning', 'Your have been logout');
+    }
 }
