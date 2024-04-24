@@ -312,7 +312,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 <!---Container Fluid-->
 @endsection
