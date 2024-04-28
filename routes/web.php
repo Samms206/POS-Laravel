@@ -6,13 +6,14 @@ use App\Http\Controllers\Authentication;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Middleware\UserMiddleware;
 
 Route::get('/login', [Authentication::class, 'index'])->name('login');
 Route::post('/login-process', [Authentication::class, 'auth'])->name('login-process');
 Route::get('/logout', [Authentication::class, 'logout'])->name('logout');
 
-Route::get('/', [AdminColtroller::class, 'index'])->name('dashboard');
-Route::get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
+Route::middleware(UserMiddleware::class)->get('/', [AdminColtroller::class, 'index'])->name('dashboard');
+Route::middleware(UserMiddleware::class)->get('/charts', [AdminColtroller::class, 'gotoCharts'])->name('charts');
 Route::get('/barang', [AdminColtroller::class, 'gotoBarang'])->name('barang');
 Route::get('/transaksi', [AdminColtroller::class, 'gotoTransaksi'])->name('transaction');
 Route::get('/user', [AdminColtroller::class, 'gotoUser'])->name('user');
