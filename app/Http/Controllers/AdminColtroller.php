@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\User;
+use App\Models\V_invoice;
 
 class AdminColtroller extends Controller
 {
@@ -30,6 +31,7 @@ class AdminColtroller extends Controller
         return view('layout.user')->with('users', $users);
     }
     public function gotoReportTransaction(){
-        return view('layout.report.transaksi-report');
+        $invoices = V_invoice::all();
+        return view('layout.report.transaksi-report')->with('invoices', $invoices);
     }
 }
