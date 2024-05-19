@@ -6,6 +6,7 @@ use App\Models\Barang;
 use App\Models\DetailTransaction;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
@@ -27,7 +28,7 @@ class TransactionController extends Controller
             // Membuat transaksi baru
             $transaction = new Transaction();
             $transaction->customer = $request->input('customer');
-            $transaction->id_staff = 3;//$request->input('id_staff');
+            $transaction->id_staff = Auth::user()->id;
             $transaction->discount = $request->input('diskon');
             $transaction->total = $request->input('total');
             $transaction->paid = $request->input('bayar');

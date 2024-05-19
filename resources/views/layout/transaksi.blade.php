@@ -70,7 +70,7 @@
                                     <div class="form-group">
                                         <label for="kasir">Kasir</label>
                                         <input type="text" class="form-control" id="kasir" placeholder="Kasir"
-                                            readonly>
+                                            readonly value="{{ Auth::user()->name }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
